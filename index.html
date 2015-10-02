@@ -1,12 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="thortHub">
 <head lang="en">
     <meta charset="UTF-8">
     <title>ThortHub User Search</title>
-</head>
-<body ng-app="thortHub">
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
-<!--<div id="userdata" ng-controller="gitHubController as githubData">-->
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+</head>
+<body>
+
+<!--<div id="userdata" ng-controller="userSearchController as userData">-->
 
 <!--<h1 class="text-center">-->
     <!--<span />{{userData.login}}</span>-->
@@ -56,33 +62,22 @@
 <!--</div>-->
 
 <!-- //////////////////////////// -->
-
-<div id="repodata" ng-controller="repoSearchController as repoSearchData">
-
-    <h4>Repos <span class="badge"></span>
-        <input type="text"
-               ng-model="searchRepo"
-               ng-change="change()"
-               placeholder="Find a repo..." class="form-control input-sm"/>
-    </h4>
-    <div ng-repeat="repo in results.items | filter:searchText  | orderBy:predicate:reverse" class="list-group-item ">
-        <div class="row">
-            owner: <a href="{{repo.owner.login}}" target="_blank">{{repo.owner.login}}</a>       |
-            <a href="{{repo.html_url}}" target="_blank">{{repo.full_name}}</a>       |   {{repo.description}}       |
-            url: <a href="{{repo.html_url}}" target="_blank">{{repo.html_url}}</a>         |  homepage: <a href="{{repo.homepage}}" target="_blank">{{repo.homepage}}</a>         |             number of forks: {{repo.forks_count}}| number of stargazers: {{repo.stargazers_count}}| number of open_issues: {{repo.open_issues}}| number of forks: {{repo.open_issues}}|
-            <hr/>
-
-        </div>
-    </div>
-
-
-</div>
+	                  <div ng-view></div>
 
 
 
 
 
-<script src="angular.min.js"></script>
-<script src="app.js"></script>
+
+
+	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="bower_components/angular-route/angular-route.min.js"></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
+<!-- Latest compiled and minified JavaScript -->
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>-->
+
+<script src="js/app.js"></script>
+    <!--<script src="js/controllers/userSearchController.js"></script>-->
+    <script src="js/controllers/repoSearchController.js"></script>
 </body>
 </html>

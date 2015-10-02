@@ -1,26 +1,14 @@
 (function () {
-	//start file
+	'use strict';
 
-	var app = angular.module('thortHub', []);
-
-
-	app.controller('gitHubController', ['$scope', '$http', function ($scope, $http) {
-
-		$scope.username = "ZeroGodForce";
-		$http.get("https://api.github.com/users/" + $scope.username)
-			.success(function (data) {
-				$scope.userData = data;
-
-				// Get users repos
-				$http.get($scope.userData.repos_url)
-					.success(function (data) {
-						$scope.repoData = data;
-					});
-			});
-	}]);
-
-
-	app.controller('repoSearchController', ['$scope', '$http', function ($scope, $http) {
+/**
+ * @ngdoc function
+ * @name repoSearchController
+ * @description
+ * Controller of thortHub
+ */
+	var app = angular.module('thortHub', ['ngRoute']);
+	app.controller('issueListController', ['$scope', '$http', function ($scope, $http) {
 
 		// Wait a bit for the user to finish typing before searching
 		var pendingTask;
@@ -34,7 +22,7 @@
 
 		// search github for the repository
 		function fetch() {
-			$http.get("https://api.github.com/search/repositories?q=" + $scope.searchRepo)
+			$http.get("https://api.github.com/repos/twbs/bootstrap/issues")
 				.success(function (response) {
 					console.log(response);
 					$scope.results = response;
@@ -51,9 +39,4 @@
 			this.setSelectionRange(0, this.value.length);
 		}
 	}]);
-
-
-//end file
-})();
-
-
+}());

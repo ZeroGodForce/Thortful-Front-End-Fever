@@ -1,0 +1,30 @@
+<!--<div id="repodata" ng-controller="repoSearchController as repoSearchData">-->
+<div id="repodata">
+
+    <h4>Repos <span class="badge"></span>
+        <input type="text"
+			   ng-model="searchRepo"
+			   ng-change="change()"
+			   placeholder="Find a repo..." class="form-control input-sm"/>
+    </h4>
+    <div ng-repeat="repo in results.items | filter:searchText | orderBy:predicate:reverse" class="list-group-item ">
+        <div class="row">
+            <ul>
+                <li>owner: <a href="{{repo.owner.login}}" target="_blank">{{repo.owner.login}}</a></li>
+                <li><a href="{{repo.html_url}}" target="_blank">{{repo.full_name}}</a></li>
+                <li>{{repo.description}}</li>
+                <li>url: <a href="{{repo.html_url}}" target="_blank">{{repo.html_url}}</a>  </li>
+                <li>homepage: <a href="{{repo.homepage}}" target="_blank">{{repo.homepage}}</a>  </li>
+                <li>number of forks: {{repo.forks_count}}</li>
+                <li>number of stargazers: {{repo.stargazers_count}}</li>
+                <li>number of open_issues: <a href="https://api.github.com/repos/{{repo.full_name}}/issues">{{repo.open_issues}}</a></li>
+                <li>number of forks: {{repo.open_issues}}</li>
+            </ul>
+             
+            <hr/>
+
+        </div>
+    </div>
+
+
+</div>
