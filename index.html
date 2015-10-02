@@ -6,75 +6,99 @@
 </head>
 <body ng-app="thortHub">
 
+<!--<div id="userdata" ng-controller="gitHubController as githubData">-->
 
+<!--<h1 class="text-center">-->
+    <!--<span />{{userData.login}}</span>-->
+    <!--<br>-->
+    <!--<a href="{{userData.html_url}}" class="btn btn-default">-->
+        <!--<span class="octicon octicon-octoface"></span>-->
+        <!--{{userData.login}}-->
+    <!--</a>-->
+<!--</h1>-->
 
+    <!--<div class="panel-body">-->
+        <!--<div class="list-group">-->
+            <!--<div ng-repeat="repo in repoData | filter:searchText  | orderBy:predicate:reverse" class="list-group-item ">-->
+                <!--<div class="row">-->
+                    <!--<div class="col-md-8">-->
+                        <!--<h4>-->
+                            <!--<small>-->
+                                <!--<span ng-if="repo.fork" class="octicon octicon-repo-forked"></span>-->
+                                <!--<span ng-if="!repo.fork" class="octicon octicon-repo"></span>-->
+                            <!--</small>-->
+                            <!--<a href="{{repo.html_url}}" target="_blank" >-->
+                                <!--{{repo.name}}-->
+                            <!--</a>-->
+                            <!--<small>{{repo.description}}</small>-->
+                        <!--</h4>-->
 
-<div ng-controller="gitHubController as githubData">
+                        <!--<small>-->
+                            <!--<a href="{{repo.homepage}}" class="">-->
+                                <!--<i class="fa fa-link"></i> WebPage-->
+                            <!--</a>-->
+                        <!--</small>-->
+                    <!--</div>-->
+                    <!--<div class="col-md-4">-->
+                        <!--<dl class="dl-horizontal">-->
+                            <!--<dt>Last Updated:</dt>-->
+                            <!--<dd>{{repo.updated_at | date : short : timezone}}</dd>-->
+                            <!--<dt>Created:</dt>-->
+                            <!--<dd>{{repo.created_at| date : short : timezone}}</dd>-->
+                        <!--</dl>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
 
-    <!--<h3>{{search.usersearch.user}}</h3>-->
+    <!--</div>-->
 
+<!--</div>-->
 
-<h1 class="text-center">
-    <span />{{userData.login}}</span>
-    <br>
-    <a href="{{userData.html_url}}" class="btn btn-default">
-        <span class="octicon octicon-octoface"></span>
-        {{userData.login}}
-    </a>
-</h1>
+<!-- //////////////////////////// -->
 
+<div id="repodata" ng-controller="repoSearchController as repoSearchData">
 
+    <div ng-repeat="repo in repoSearchData.items | filter:searchText  | orderBy:predicate:reverse" class="list-group-item ">
+        <div class="row">
 
+            <a href="{{repo.html_url}}">{{repo.full_name}}</a>
+            <hr/>
+            <!--<div class="col-md-8">-->
+                <!--&lt;!&ndash;<h4>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<small>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<span ng-if="repo.fork" class="octicon octicon-repo-forked"></span>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<span ng-if="!repo.fork" class="octicon octicon-repo"></span>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</small>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<a href="{{repo.html_url}}" target="_blank" >&ndash;&gt;-->
+                        <!--&lt;!&ndash;{{repo.name}}&ndash;&gt;-->
+                    <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<small>{{repo.description}}</small>&ndash;&gt;-->
+                <!--&lt;!&ndash;</h4>&ndash;&gt;-->
 
-
-
-
-
-    <div class="panel-body">
-        <div class="list-group">
-            <div ng-repeat="repo in repoData | filter:searchText  | orderBy:predicate:reverse" class="list-group-item ">
-                <div class="row">
-                    <div class="col-md-8">
-                        <h4>
-                            <small>
-                                <span ng-if="repo.fork" class="octicon octicon-repo-forked"></span>
-                                <span ng-if="!repo.fork" class="octicon octicon-repo"></span>
-                            </small>
-                            <a href="{{repo.html_url}}" target="_blank" >
-                                {{repo.name}}
-                            </a>
-                            <small>{{repo.description}}</small>
-                        </h4>
-
-                        <small>
-                            <a href="{{repo.homepage}}" class="">
-                                <i class="fa fa-link"></i> WebPage
-                            </a>
-                        </small>
-                    </div>
-                    <div class="col-md-4">
-                        <dl class="dl-horizontal">
-                            <dt>Last Updated:</dt>
-                            <dd>{{repo.updated_at | date : short : timezone}}</dd>
-                            <dt>Created:</dt>
-                            <dd>{{repo.created_at| date : short : timezone}}</dd>
-                        </dl>
-                    </div>
-                </div>
-            </div>
+                <!--<small>-->
+                    <!--<a href="{{repo.homepage}}" class="">-->
+                        <!--<i class="fa fa-link"></i> WebPage-->
+                    <!--</a>-->
+                <!--</small>-->
+            <!--</div>-->
+            <!--<div class="col-md-4">-->
+                <!--<dl class="dl-horizontal">-->
+                    <!--<dt>Last Updated:</dt>-->
+                    <!--<dd>{{repo.updated_at | date : short : timezone}}</dd>-->
+                    <!--<dt>Created:</dt>-->
+                    <!--<dd>{{repo.created_at| date : short : timezone}}</dd>-->
+                <!--</dl>-->
+            <!--</div>-->
         </div>
-
     </div>
 
 
-
-
-
-
-
-
-
 </div>
+
+
+
+
 
 <script src="angular.min.js"></script>
 <script src="app.js"></script>

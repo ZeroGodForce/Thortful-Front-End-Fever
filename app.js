@@ -26,6 +26,27 @@
     }]);
 
 
+    app.controller('repoSearchController', ['$scope','$http', function($scope,$http) {
+
+        $scope.reponame = "bootstrap";
+        $http.get("https://api.github.com/search/repositories?q="+$scope.reponame)
+            .success(function(data) {
+                console.log(data);
+                $scope.repoSearchData = data;
+
+
+
+                //$http.get($scope.userData.repos_url)
+                //    .success(function(data){
+                //        $scope.repoData = data;
+                //    });
+
+            });
+
+
+    }]);
+
+
 
 
 
