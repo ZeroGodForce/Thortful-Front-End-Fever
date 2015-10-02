@@ -11,15 +11,10 @@ var app = angular.module('thortHub', ['ngRoute']);
 
 	app.config(function($routeProvider) {
 		$routeProvider.
-			when("/repos", {
+			when("/", {
 				templateUrl: "partials/repos.html",
 				controller: "repoSearchController"
 			});
-		//when("/repo/:issues", {templateUrl: "partials/open_issues.html", controller: "issueListController"}).
-		//otherwise({redirectTo: '/'});
-
-		//console.log($routeProvider);
-
 	});
 
 
@@ -39,7 +34,7 @@ var app = angular.module('thortHub', ['ngRoute']);
 		function fetch() {
 			$http.get("https://api.github.com/search/repositories?q=" + $scope.searchRepo)
 				.success(function (response) {
-					console.log(response);
+					//console.log(response);
 					$scope.results = response;
 				});
 		}

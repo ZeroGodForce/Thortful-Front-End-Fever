@@ -1,0 +1,21 @@
+<!--<div id="repodata" ng-controller="repoSearchController as repoSearchData">-->
+<div id="repodata">
+
+    <h4> <span class="badge"></span>
+        <!--{{repo.full_name}}   Open Issues-->
+    </h4>
+      <div ng-repeat="issues in results | filter:searchText | orderBy:predicate:reverse" class="list-group-item ">
+        <div class="row">
+            <ul>
+
+                <li>issue title: {{issues.title}}</li>
+
+            </ul>
+             
+            <hr/>
+
+        </div>
+    </div>
+
+
+</div>
