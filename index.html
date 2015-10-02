@@ -59,10 +59,17 @@
 
 <div id="repodata" ng-controller="repoSearchController as repoSearchData">
 
-    <div ng-repeat="repo in repoSearchData.items | filter:searchText  | orderBy:predicate:reverse" class="list-group-item ">
+    <h4>Repos <span class="badge"></span>
+        <input type="text"
+               ng-model="searchRepo"
+               ng-change="change()"
+               placeholder="Find a repo..." class="form-control input-sm"/>
+    </h4>
+    <div ng-repeat="repo in results.items | filter:searchText  | orderBy:predicate:reverse" class="list-group-item ">
         <div class="row">
-
-            <a href="{{repo.html_url}}">{{repo.full_name}}</a>
+            owner: <a href="{{repo.owner.login}}" target="_blank">{{repo.owner.login}}</a>       |
+            <a href="{{repo.html_url}}" target="_blank">{{repo.full_name}}</a>       |   {{repo.description}}       |
+            url: <a href="{{repo.html_url}}" target="_blank">{{repo.html_url}}</a>         |  homepage: <a href="{{repo.homepage}}" target="_blank">{{repo.homepage}}</a>         |             number of forks: {{repo.forks_count}}| number of stargazers: {{repo.stargazers_count}}| number of open_issues: {{repo.open_issues}}| number of forks: {{repo.open_issues}}|
             <hr/>
             <!--<div class="col-md-8">-->
                 <!--&lt;!&ndash;<h4>&ndash;&gt;-->
