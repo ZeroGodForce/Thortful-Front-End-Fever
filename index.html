@@ -5,10 +5,77 @@
     <title>ThortHub User Search</title>
 </head>
 <body ng-app="thortHub">
-<div ng-controller="SearchController as search">
 
-    <h3>{{search.usersearch.username}}</h3>
+
+
+
+<div ng-controller="gitHubController as githubData">
+
+    <!--<h3>{{search.usersearch.user}}</h3>-->
+
+
+<h1 class="text-center">
+    <span />{{userData.login}}</span>
+    <br>
+    <a href="{{userData.html_url}}" class="btn btn-default">
+        <span class="octicon octicon-octoface"></span>
+        {{userData.login}}
+    </a>
+</h1>
+
+
+
+
+
+
+
+
+    <div class="panel-body">
+        <div class="list-group">
+            <div ng-repeat="repo in repoData | filter:searchText  | orderBy:predicate:reverse" class="list-group-item ">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h4>
+                            <small>
+                                <span ng-if="repo.fork" class="octicon octicon-repo-forked"></span>
+                                <span ng-if="!repo.fork" class="octicon octicon-repo"></span>
+                            </small>
+                            <a href="{{repo.html_url}}" target="_blank" >
+                                {{repo.name}}
+                            </a>
+                            <small>{{repo.description}}</small>
+                        </h4>
+
+                        <small>
+                            <a href="{{repo.homepage}}" class="">
+                                <i class="fa fa-link"></i> WebPage
+                            </a>
+                        </small>
+                    </div>
+                    <div class="col-md-4">
+                        <dl class="dl-horizontal">
+                            <dt>Last Updated:</dt>
+                            <dd>{{repo.updated_at | date : short : timezone}}</dd>
+                            <dt>Created:</dt>
+                            <dd>{{repo.created_at| date : short : timezone}}</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
 </div>
+
 <script src="angular.min.js"></script>
 <script src="app.js"></script>
 </body>
