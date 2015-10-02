@@ -7,7 +7,22 @@
  * @description
  * Controller of thortHub
  */
-	var app = angular.module('thortHub', []);
+var app = angular.module('thortHub', ['ngRoute']);
+
+	app.config(function($routeProvider) {
+		$routeProvider.
+			when("/repos", {
+				templateUrl: "partials/repos.html",
+				controller: "repoSearchController"
+			});
+		//when("/repo/:issues", {templateUrl: "partials/open_issues.html", controller: "issueListController"}).
+		//otherwise({redirectTo: '/'});
+
+		//console.log($routeProvider);
+
+	});
+
+
 	app.controller('repoSearchController', ['$scope', '$http', function ($scope, $http) {
 
 		// Wait a bit for the user to finish typing before searching

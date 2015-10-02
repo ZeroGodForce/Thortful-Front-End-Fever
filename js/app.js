@@ -9,20 +9,20 @@
  *
  * Main module of the application.
  */
-var app = angular.module('thortHub', ['ngRoute', 'repoSearchController']);
+var app = angular.module('thortHub', ['thortHub.repoSearchController']);
 
-	app.config(function($routeProvider) {
-	$routeProvider.
-		when("/", {
-			templateUrl: "partials/repos.html",
-			controller: "repoSearchController"
-		});
-		//when("/repo/:issues", {templateUrl: "partials/open_issues.html", controller: "issueListController"}).
-		//otherwise({redirectTo: '/'});
-
-	//console.log($routeProvider);
-
-});
+	//app.config(function($routeProvider) {
+	//	$routeProvider.
+	//		when("/", {
+	//			templateUrl: "partials/repos.html",
+	//			controller: "repoSearchController"
+	//		});
+	//	//when("/repo/:issues", {templateUrl: "partials/open_issues.html", controller: "issueListController"}).
+	//	//otherwise({redirectTo: '/'});
+	//
+	//	//console.log($routeProvider);
+	//
+	//});
 
 
 
